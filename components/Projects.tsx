@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ExternalLink } from "lucide-react"
@@ -20,7 +20,7 @@ const projects = [
       "A comprehensive multivendor e-commerce platform similar to Daraz and Alibaba, allowing multiple vendors to sell their products to a wide audience. Built with modern web technologies for seamless user experience.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tizaraa-ecommerce-app-screenshoot-yhenZUX7VgUMX7aHbREEKx17Ex3xz8.png",
-    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Material-UI"],
+    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
     liveUrl: "https://tizaraa.com",
     features: [
       "Multi-vendor marketplace functionality",
@@ -37,7 +37,7 @@ const projects = [
       "An advanced enterprise resource planning (ERP) solution developed using Japanese technology. Specifically designed to enhance business operations by integrating various functions and optimizing resource utilization.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/johkasou-erp-system-app-screenshoot-c17ccHXmU9yiX47T0iIjqCHqB21GhT.png",
-    technologies: ["React.js", "Next.js", "TypeScript", "Material-UI"],
+    technologies: ["React.js", "Next.js", "TypeScript", "Material-UI", "Express.js", "MySQL"],
     liveUrl: "https://johkasou-erp.com",
     features: [
       "Comprehensive business process management",
@@ -47,10 +47,30 @@ const projects = [
       "Role-based access control",
     ],
   },
+  {
+    id: 3,
+    title: "Video Calling App",
+    description:
+      "A modern video calling application built with Clerk authentication and Stream for real-time video functionality. Features comprehensive video calling capabilities including meeting scheduling, recordings, and personal rooms without chat functionality.",
+    image:
+      "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video-calling-app-nNTiZkiF9CcC1q4Cm11yg0O8LV3TPi.png",
+    technologies: ["React.js", "Next.js", "TypeScript", "Clerk", "Stream", "Tailwind CSS"],
+    liveUrl: "https://video-calling-app-lilac.vercel.app",
+    features: [
+      "Real-time video calling functionality",
+      "Meeting scheduling and management",
+      "Recording capabilities",
+      "Personal room creation",
+      "Secure authentication with Clerk",
+    ],
+  },
 ]
 
 export default function Projects() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [showAllProjects, setShowAllProjects] = useState(false)
+
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 2)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -120,10 +140,32 @@ export default function Projects() {
     }, sectionRef)
 
     return () => ctx.revert()
-  }, [])
+  }, [showAllProjects]) // Added showAllProjects dependency to re-run animations
 
   const handleProjectClick = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer")
+  }
+
+  const handleSeeMore = () => {
+    setShowAllProjects(true)
+    // Animate new project card
+    setTimeout(() => {
+      gsap.fromTo(
+        ".project-card:last-child",
+        {
+          opacity: 0,
+          y: 100,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "back.out(1.7)",
+        },
+      )
+    }, 100)
   }
 
   return (
@@ -140,7 +182,7 @@ export default function Projects() {
         </div>
 
         <div className="projects-container grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+          {displayedProjects.map((project) => (
             <Card
               key={project.id}
               className="project-card bg-gray-900/50 border-gray-700 hover:border-blue-400/50 transition-all duration-300 overflow-hidden cursor-pointer"
@@ -199,6 +241,17 @@ export default function Projects() {
             </Card>
           ))}
         </div>
+
+        {!showAllProjects && (
+          <div className="text-center mt-12">
+            <Button
+              onClick={handleSeeMore}
+              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              See More Projects
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   )
