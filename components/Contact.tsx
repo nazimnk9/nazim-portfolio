@@ -19,21 +19,21 @@ const contactInfo = [
     label: "Email",
     value: "nazimahmedprovat@gmail.com",
     href: "mailto:nazimahmedprovat@gmail.com",
-    color: "text-blue-400",
+    color: "text-blue-500",
   },
   {
     icon: Phone,
     label: "Phone",
     value: "+8801679632572",
     href: "tel:+8801679632572",
-    color: "text-green-400",
+    color: "text-emerald-500",
   },
   {
     icon: MapPin,
     label: "Location",
     value: "Dhaka, Bangladesh",
     href: "#",
-    color: "text-red-400",
+    color: "text-indigo-500",
   },
 ]
 
@@ -42,13 +42,13 @@ const socialLinks = [
     icon: Github,
     label: "GitHub",
     href: "https://github.com/nazimnk9",
-    color: "hover:text-gray-300",
+    color: "hover:text-slate-300",
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     href: "https://linkedin.com/in/nazimnk9",
-    color: "hover:text-blue-400",
+    color: "hover:text-blue-500",
   },
 ]
 
@@ -60,6 +60,7 @@ export default function Contact() {
     message: "",
   })
   const [showToast, setShowToast] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -131,19 +132,36 @@ export default function Contact() {
     }
   }, [showToast])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
     if (formData.name.trim() && formData.email.trim() && formData.message.trim()) {
-      // Create mailto link with form data
-      const subject = encodeURIComponent(`Contact from ${formData.name}`)
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
-      )
-      window.open(`mailto:nazimahmedprovat@gmail.com?subject=${subject}&body=${body}`, "_blank")
+      setIsSubmitting(true)
 
-      setShowToast(true)
-      setFormData({ name: "", email: "", message: "" })
+      try {
+        const response = await fetch("https://formspree.io/f/mnnbzvko", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+          }),
+        })
+
+        if (response.ok) {
+          setShowToast(true)
+          setFormData({ name: "", email: "", message: "" })
+        } else {
+          console.error("Form submission failed")
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error)
+      } finally {
+        setIsSubmitting(false)
+      }
     }
   }
 
@@ -158,23 +176,11 @@ export default function Contact() {
 
   return (
     <div ref={sectionRef} className="min-h-screen py-12 sm:py-20 px-4">
-      {showToast && (
-        <div className="fixed top-8 right-4 sm:right-8 z-50 animate-in slide-in-from-right duration-300">
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 sm:px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 border border-green-400/30 max-w-sm">
-            <CheckCircle className="w-6 h-6 text-green-100 flex-shrink-0" />
-            <div>
-              <p className="font-semibold text-sm sm:text-base">Message Sent Successfully!</p>
-              <p className="text-xs sm:text-sm text-green-100">Your email client will open shortly.</p>
-            </div>
-          </div>
-        </div>
-      )}
-
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="contact-title text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-6">
             Get In{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Touch</span>
+            <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Touch</span>
           </h2>
           <p className="contact-title text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto px-4">
             Ready to bring your ideas to life? Let's discuss your next project and create something amazing together.
@@ -183,7 +189,7 @@ export default function Contact() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           <div>
-            <div className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50">
+            <div className="bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-slate-700/50">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Contact Information</h3>
 
               <div className="contact-grid space-y-4 sm:space-y-6 mb-6 sm:mb-8">
@@ -192,17 +198,17 @@ export default function Contact() {
                   return (
                     <Card
                       key={index}
-                      className="contact-card bg-gray-900/50 border-gray-700 hover:border-blue-400/50 transition-all duration-300"
+                      className="contact-card bg-slate-900/50 border-slate-700 hover:border-blue-500/50 transition-all duration-300"
                     >
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex items-center space-x-4">
                           <div
-                            className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 flex items-center justify-center`}
+                            className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-800 flex items-center justify-center`}
                           >
                             <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${info.color}`} />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-gray-400 text-xs sm:text-sm">{info.label}</p>
+                            <p className="text-slate-400 text-xs sm:text-sm">{info.label}</p>
                             {info.href !== "#" ? (
                               <a
                                 href={info.href}
@@ -233,7 +239,7 @@ export default function Contact() {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300 transform hover:scale-110`}
+                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 ${social.color} transition-all duration-300 transform hover:scale-110`}
                       >
                         <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </a>
@@ -242,10 +248,10 @@ export default function Contact() {
                 </div>
               </div>
 
-              <Card className="bg-gray-900/50 border-gray-700">
+              <Card className="bg-slate-900/50 border-slate-700">
                 <CardContent className="p-4 sm:p-6">
                   <h4 className="text-base sm:text-lg font-semibold text-white mb-2">Address</h4>
-                  <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+                  <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
                     Plot#22 & 25, BSBL Shaymolima (2nd phase),
                     <br />
                     Shaymoli Housing Society, Dhaka Uddan,
@@ -261,12 +267,24 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="contact-form">
-            <div className="bg-gray-900/30 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-gray-700/50">
+            <div className="bg-slate-900/40 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-slate-700/50">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8">Send a Message</h3>
 
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              {showToast && (
+                <div className="mb-6 animate-in slide-in-from-top duration-300">
+                  <div className="bg-gradient-to-r from-emerald-600 to-blue-600 text-white px-4 sm:px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 border border-emerald-400/30">
+                    <CheckCircle className="w-6 h-6 text-emerald-100 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">Message Sent Successfully!</p>
+                      <p className="text-xs sm:text-sm text-emerald-100">I'll get back to you soon.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <form onSubmit={handleSubmit} method="POST" className="space-y-4 sm:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
                     Your Name
                   </label>
                   <input
@@ -276,13 +294,13 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200 text-sm sm:text-base"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors duration-200 text-sm sm:text-base"
                     placeholder="Enter your name"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                     Your Email
                   </label>
                   <input
@@ -292,13 +310,13 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200 text-sm sm:text-base"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors duration-200 text-sm sm:text-base"
                     placeholder="Enter your email"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
                     Your Message
                   </label>
                   <textarea
@@ -308,22 +326,22 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-200 resize-none text-sm sm:text-base"
+                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 transition-colors duration-200 resize-none text-sm sm:text-base"
                     placeholder="Enter your message"
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  disabled={!isFormValid}
+                  disabled={!isFormValid || isSubmitting}
                   className={`w-full font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
-                    isFormValid
-                      ? "bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white"
-                      : "bg-gray-600 text-gray-400 cursor-not-allowed"
+                    isFormValid && !isSubmitting
+                      ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
+                      : "bg-slate-600 text-slate-400 cursor-not-allowed"
                   }`}
                 >
                   <Send className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
@@ -331,8 +349,8 @@ export default function Contact() {
         </div>
 
         {/* Footer */}
-        <div className="mt-16 sm:mt-20 pt-6 sm:pt-8 border-t border-gray-700 text-center">
-          <p className="text-gray-400 text-sm sm:text-base">
+        <div className="mt-16 sm:mt-20 pt-6 sm:pt-8 border-t border-slate-700 text-center">
+          <p className="text-slate-400 text-sm sm:text-base">
             © 2024 Md. Nazim Ahmed. Built with Next.js, GSAP, and Three.js
           </p>
         </div>
