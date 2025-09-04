@@ -334,7 +334,7 @@ export default function Contact() {
                 <Button
                   type="submit"
                   disabled={!isFormValid || isSubmitting}
-                  className={`w-full font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base ${
+                  className={`w-full font-semibold py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base cursor-pointer ${
                     isFormValid && !isSubmitting
                       ? "bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white"
                       : "bg-slate-600 text-slate-400 cursor-not-allowed"

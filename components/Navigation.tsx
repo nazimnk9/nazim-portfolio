@@ -42,7 +42,7 @@ export default function Navigation() {
   }, [])
 
   const downloadCV = () => {
-    window.open("https://drive.google.com/file/d/1Uun7eVy-C2Z3Et8AgIph9GNge6zS86iE/view?usp=sharing", "_blank")
+    window.open("https://drive.google.com/file/d/1OlBPX5JN35px0N6hIffk5nDcWulAmc8-/view?usp=sharing", "_blank")
   }
 
   const scrollToSection = (href: string) => {
@@ -69,7 +69,7 @@ export default function Navigation() {
           <div className="nav-item">
             <button
               onClick={scrollToHome}
-              className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:from-blue-300 hover:to-purple-300 transition-all duration-200"
+              className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:from-blue-300 hover:to-purple-300 transition-all duration-200 cursor-pointer"
             >
               Nazim Ahmed
             </button>
@@ -82,7 +82,7 @@ export default function Navigation() {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className={`nav-item px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                  className={`nav-item px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer ${
                     activeSection === item.href.slice(1)
                       ? "text-blue-400 bg-blue-400/10"
                       : "text-gray-300 hover:text-white hover:bg-white/10"
@@ -93,7 +93,7 @@ export default function Navigation() {
               ))}
               <Button
                 onClick={downloadCV}
-                className="nav-item ml-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                className="nav-item ml-4 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 cursor-pointer"
               >
                 <Download className="w-4 h-4 mr-2" />
                 Download CV

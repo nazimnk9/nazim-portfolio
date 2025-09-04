@@ -204,7 +204,7 @@ export default function Hero() {
             <Button
               onClick={scrollToProjects}
               size="lg"
-              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 transform hover:scale-105 cursor-pointer"
             >
               View My Work
             </Button>
@@ -212,7 +212,7 @@ export default function Hero() {
               onClick={scrollToContact}
               variant="outline"
               size="lg"
-              className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 bg-transparent"
+              className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 bg-transparent cursor-pointer"
             >
               Get In Touch
             </Button>
