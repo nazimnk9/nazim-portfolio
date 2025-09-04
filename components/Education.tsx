@@ -16,7 +16,7 @@ const educationData = [
     subject: "Computer Science and Engineering (CSE)",
     institution: "Bangladesh University, Dhaka",
     cgpa: "3.62",
-    period: "2018 - 2022",
+    period: "2020 - 2023",
     type: "university",
   },
   {
@@ -24,7 +24,7 @@ const educationData = [
     subject: "Science Group",
     institution: "College Of Development Alternative (CODA), Dhaka",
     gpa: "4.31 (A)",
-    period: "2016 - 2018",
+    period: "2012 - 2014",
     type: "college",
   },
   {
@@ -32,7 +32,7 @@ const educationData = [
     subject: "Science Group",
     institution: "Bangladesh Bank High School, Dhaka",
     gpa: "4.10 (A)",
-    period: "2014 - 2016",
+    period: "2010 - 2012",
     type: "school",
   },
 ]
