@@ -20,7 +20,7 @@ const projects = [
       "A comprehensive multivendor e-commerce platform similar to Daraz and Alibaba, allowing multiple vendors to sell their products to a wide audience. Built with modern web technologies for seamless user experience.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tizaraa-ecommerce-app-screenshoot-yhenZUX7VgUMX7aHbREEKx17Ex3xz8.png",
-    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
+    technologies: ["Tailwind CSS", "Material-UI", "TypeScript", "React.js", "Next.js" ],
     liveUrl: "https://tizaraa.com",
     features: [
       "Multi-vendor marketplace functionality",
@@ -37,7 +37,7 @@ const projects = [
       "An advanced enterprise resource planning (ERP) solution developed using Japanese technology. Specifically designed to enhance business operations by integrating various functions and optimizing resource utilization.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/johkasou-erp-system-app-screenshoot-c17ccHXmU9yiX47T0iIjqCHqB21GhT.png",
-    technologies: ["React.js", "Next.js", "TypeScript", "Material-UI", "Express.js", "MySQL"],
+    technologies: ["Tailwind CSS", "Material-UI", "Javascript", "React.js", "Next.js"],
     liveUrl: "https://johkasou-erp.com",
     features: [
       "Comprehensive business process management",
@@ -54,7 +54,7 @@ const projects = [
       "A modern video calling application built with Clerk authentication and Stream for real-time video functionality. Features comprehensive video calling capabilities including meeting scheduling, recordings, and personal rooms without chat functionality.",
     image:
       "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/video-calling-app-nNTiZkiF9CcC1q4Cm11yg0O8LV3TPi.png",
-    technologies: ["React.js", "Next.js", "TypeScript", "Clerk", "Stream", "Tailwind CSS"],
+    technologies: ["Tailwind CSS", "shadcn/ui", "TypeScript", "React.js", "Next.js", "Clerk", "Stream"],
     liveUrl: "https://video-calling-app-lilac.vercel.app",
     features: [
       "Real-time video calling functionality",
