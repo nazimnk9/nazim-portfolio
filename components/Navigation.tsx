@@ -71,7 +71,7 @@ export default function Navigation() {
               onClick={scrollToHome}
               className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent hover:from-blue-300 hover:to-purple-300 transition-all duration-200 cursor-pointer"
             >
-              Nazim Ahmed
+              Md. Nazim Ahmed
             </button>
           </div>
 
