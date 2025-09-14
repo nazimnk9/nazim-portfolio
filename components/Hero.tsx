@@ -149,7 +149,8 @@ export default function Hero() {
             <div className="w-80 h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-400 to-purple-400 p-1 bg-gradient-to-r from-blue-400 to-purple-400">
               <div className="w-full h-full rounded-full overflow-hidden bg-gray-900">
                 <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_55PP.jpg-qVIOffzVnb4ZYY5RRJWRXJo9y1xwm9.jpeg"
+                  //src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/IMG_55PP.jpg-qVIOffzVnb4ZYY5RRJWRXJo9y1xwm9.jpeg"
+                  src="/images/nazim-profile.png"
                   alt="Md. Nazim Ahmed"
                   width={320}
                   height={320}

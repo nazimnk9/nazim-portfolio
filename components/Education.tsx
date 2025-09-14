@@ -15,7 +15,7 @@ const educationData = [
     level: "Bachelor of Science (B.Sc)",
     subject: "Computer Science and Engineering (CSE)",
     institution: "Bangladesh University, Dhaka",
-    cgpa: "3.62",
+    //cgpa: "3.62",
     period: "2020 - 2023",
     type: "university",
   },
@@ -23,7 +23,7 @@ const educationData = [
     level: "Higher Secondary Certificate (HSC)",
     subject: "Science Group",
     institution: "College Of Development Alternative (CODA), Dhaka",
-    gpa: "4.31 (A)",
+    //gpa: "4.31 (A)",
     period: "2012 - 2014",
     type: "college",
   },
@@ -31,7 +31,7 @@ const educationData = [
     level: "Secondary School Certificate (SSC)",
     subject: "Science Group",
     institution: "Bangladesh Bank High School, Dhaka",
-    gpa: "4.10 (A)",
+    //gpa: "4.10 (A)",
     period: "2010 - 2012",
     type: "school",
   },
@@ -178,7 +178,7 @@ export default function Education() {
                             <Calendar className="w-4 h-4" />
                             <span className="text-sm">{edu.period}</span>
                           </div>
-                          {edu.cgpa && (
+                          {/* {edu.cgpa && (
                             <div className="flex items-center space-x-1">
                               <Award className="w-4 h-4 text-yellow-400" />
                               <span className="text-yellow-400 font-semibold text-sm">CGPA: {edu.cgpa}</span>
@@ -189,7 +189,7 @@ export default function Education() {
                               <Award className="w-4 h-4 text-yellow-400" />
                               <span className="text-yellow-400 font-semibold text-sm">GPA: {edu.gpa}</span>
                             </div>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </CardContent>
