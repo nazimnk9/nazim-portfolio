@@ -656,7 +656,7 @@ export default function Skills() {
                 <img
                   src="/images/mern-stack-development.jpg"
                   alt="MERN Stack Development Certificate"
-                  className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
+                  className="w-full h-60 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
                   onClick={() => openModal("/images/mern-stack-development.jpg")}
                 />
               </div>
@@ -677,7 +677,7 @@ export default function Skills() {
                 <img
                   src="/images/web-development.jpg"
                   alt="Web Development Certificate"
-                  className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
+                  className="w-full h-60 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
                   onClick={() => openModal("/images/web-development.jpg")}
                 />
               </div>
@@ -690,7 +690,7 @@ export default function Skills() {
                 <img
                   src="/images/web-design.jpg"
                   alt="Web Design Certificate"
-                  className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
+                  className="w-full h-60 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
                   onClick={() => openModal("/images/web-design.jpg")}
                 />
               </div>
