@@ -671,20 +671,7 @@ export default function Skills() {
             </div>
 
             <div className="bg-gradient-to-r from-green-500/20 to-teal-500/20 rounded-xl p-6 border border-green-500/30">
-              <h4 className="text-lg font-semibold text-green-400 mb-2">Certified Web Designer</h4>
-              <p className="text-gray-300 mb-4">Creative IT Institute</p>
-              <div className="mb-4">
-                <img
-                  src="/images/web-design.jpg"
-                  alt="Web Design Certificate"
-                  className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
-                  onClick={() => openModal("/images/web-design.jpg")}
-                />
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-500/30">
-              <h4 className="text-lg font-semibold text-orange-400 mb-2">Certified Web Developer</h4>
+              <h4 className="text-lg font-semibold text-green-400 mb-2">Certified Web Developer</h4>
               <p className="text-gray-300 mb-4">Creative IT Institute</p>
               <div className="mb-4">
                 <img
@@ -692,6 +679,19 @@ export default function Skills() {
                   alt="Web Development Certificate"
                   className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
                   onClick={() => openModal("/images/web-development.jpg")}
+                />
+              </div>
+            </div>
+
+            <div className="bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-xl p-6 border border-orange-500/30">
+              <h4 className="text-lg font-semibold text-orange-400 mb-2">Certified Web Designer</h4>
+              <p className="text-gray-300 mb-4">Creative IT Institute</p>
+              <div className="mb-4">
+                <img
+                  src="/images/web-design.jpg"
+                  alt="Web Design Certificate"
+                  className="w-full h-48 object-cover rounded-lg cursor-pointer hover:opacity-80 transition-all duration-200 hover:scale-105 shadow-lg"
+                  onClick={() => openModal("/images/web-design.jpg")}
                 />
               </div>
             </div>
