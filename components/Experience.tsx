@@ -276,7 +276,7 @@ export default function Experience() {
             <CardContent className="p-6 md:p-8">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
                 <div className="mb-4 sm:mb-0">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Frontend Engineer</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Frontend Developer</h3>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0 text-gray-400">
                     <div className="flex items-center space-x-1">
                       <Building className="w-4 h-4 flex-shrink-0" />
@@ -303,7 +303,7 @@ export default function Experience() {
                 </div>
               </div>
               <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-                Working as a Frontend Engineer at Tizaraa IT, a growing IT firm in Bangladesh.
+                Working as a Frontend Developer at Tizaraa IT, a growing IT firm in Bangladesh.
                 Responsible for developing and maintaining modern web applications using cutting-edge technologies.
               </p>
             </CardContent>

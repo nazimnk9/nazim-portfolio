@@ -175,7 +175,7 @@ export default function Hero() {
               <br />
               <span className="text-white">Ahmed</span>
             </h1>
-            <h2 className="hero-subtitle text-2xl lg:text-3xl font-semibold text-gray-300 mb-6">Frontend Engineer</h2>
+            <h2 className="hero-subtitle text-2xl lg:text-3xl font-semibold text-gray-300 mb-6">Frontend Developer</h2>
             <p className="hero-subtitle text-lg text-blue-400 font-medium">• Javascript • TypeScript • React.js • Next.js </p>
           </div>
 
