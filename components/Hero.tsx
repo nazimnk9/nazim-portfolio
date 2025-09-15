@@ -180,7 +180,7 @@ export default function Hero() {
           </div>
 
           <p className="hero-description text-lg text-gray-300 leading-relaxed max-w-2xl">
-            Creative and detail-oriented Frontend Engineer passionate about building modern, scalable, user-centric web
+            Creative and detail-oriented Frontend Developer passionate about building modern, scalable, user-centric web
             applications by transforming complex problems into elegant solutions using the latest web technologies.
           </p>
 
