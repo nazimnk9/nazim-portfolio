@@ -15,26 +15,26 @@ const educationData = [
     level: "Bachelor of Science (B.Sc)",
     subject: "Computer Science and Engineering (CSE)",
     institution: "Bangladesh University, Dhaka",
-    //cgpa: "3.62",
-    period: "2020 - 2023",
+    cgpa: "3.62",
+    //period: "2020 - 2023",
     type: "university",
   },
-  {
-    level: "Higher Secondary Certificate (HSC)",
-    subject: "Science Group",
-    institution: "College Of Development Alternative (CODA), Dhaka",
-    //gpa: "4.31 (A)",
-    period: "2012 - 2014",
-    type: "college",
-  },
-  {
-    level: "Secondary School Certificate (SSC)",
-    subject: "Science Group",
-    institution: "Bangladesh Bank High School, Dhaka",
-    //gpa: "4.10 (A)",
-    period: "2010 - 2012",
-    type: "school",
-  },
+  // {
+  //   level: "Higher Secondary Certificate (HSC)",
+  //   subject: "Science Group",
+  //   institution: "College Of Development Alternative (CODA), Dhaka",
+  //   gpa: "4.31 (A)",
+  //   period: "2012 - 2014",
+  //   type: "college",
+  // },
+  // {
+  //   level: "Secondary School Certificate (SSC)",
+  //   subject: "Science Group",
+  //   institution: "Bangladesh Bank High School, Dhaka",
+  //   gpa: "4.10 (A)",
+  //   period: "2010 - 2012",
+  //   type: "school",
+  // },
 ]
 
 const references = [
@@ -174,17 +174,17 @@ export default function Education() {
                           </div>
                         </div>
                         <div className="text-left sm:text-right flex-shrink-0">
-                          <div className="flex items-center space-x-1 text-gray-400 mb-2">
+                          {/* <div className="flex items-center space-x-1 text-gray-400 mb-2">
                             <Calendar className="w-4 h-4" />
                             <span className="text-sm">{edu.period}</span>
-                          </div>
-                          {/* {edu.cgpa && (
+                          </div> */}
+                          {edu.cgpa && (
                             <div className="flex items-center space-x-1">
                               <Award className="w-4 h-4 text-yellow-400" />
                               <span className="text-yellow-400 font-semibold text-sm">CGPA: {edu.cgpa}</span>
                             </div>
                           )}
-                          {edu.gpa && (
+                          {/* {edu.gpa && (
                             <div className="flex items-center space-x-1">
                               <Award className="w-4 h-4 text-yellow-400" />
                               <span className="text-yellow-400 font-semibold text-sm">GPA: {edu.gpa}</span>
